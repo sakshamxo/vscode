@@ -1,0 +1,22 @@
+{
+  "name": "vscodeclone",
+  "version": "1.0.0",
+  "description": "clone",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "vs",
+    "code",
+    "clone"
+  ],
+  "author": "saksham",
+  "license": "ISC",
+  "dependencies": {
+    "ejs": "^3.1.8",
+    "express": "^4.18.1",
+    "kiran": "^1.0.0",
+    "nodemon": "^2.0.19"
+  }
+}

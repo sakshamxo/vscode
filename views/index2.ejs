@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/style2.css">
+    <title><%=filename%></title>
+</head>
+<body>
+    <div id="main">
+        <div class="left">
+            <div class="row">
+                <h5>Uploads</h5>
+                <div class="icon">
+                    <i id="add" class="ri-add-line"></i>
+                    <i class="ri-folder-add-line"></i>
+                    <a href="/"><i  class="ri-refresh-line"></i></a>
+                </div>
+
+            </div>
+            <form id="inputfile" autocomplete="off" action="/newfile">
+                <input name="filename" type="text" placeholder="filename">
+            </form>
+            <div class="files">
+                <% files.forEach(function(filename){%>
+                    <div class="file">
+                        <h6><a href="/files/<%= filename%>" class="<%= filename.split('.')[1]=='html' ? 'html' : filename.split('.')[1]=='css' ? 'css' : 'black'%>" ><%= filename%></a></h6>
+                        <a id="delete" href="/delete/<%= filename%>"> <i class="ri-delete-bin-5-line"></i></a>
+                    </div>
+                <% })%>
+            </div>
+        </div>
+        <div class="right">
+            <div class="top">
+                <div class="filo">
+                    <%=filename%><a href="/"><i class="ri-close-line"></i></a>
+                </div>
+            </div>
+            <div class="text">
+                <form id="textform" action="/save/<%=filename%>">
+                    <textarea name="savedata"><%= filesdata%></textarea>
+                    <input id="submit" type="submit" value="save">
+                </form>
+              
+            </div>
+            
+        </div>
+    </div>
+</body>
+<script>
+    document.querySelector("#add")
+    .addEventListener('click',function(){
+        document.querySelector("#inputfile").style.display = "initial";
+    })
+</script>
+</html>
